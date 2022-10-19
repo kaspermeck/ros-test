@@ -1,16 +1,22 @@
 # Docker Compose to Build Development Environment Container
 
-Compile container
+Compile dev-env container.
 ```
 ros-test/ros-compose/development$ docker compose build
 ```
 
-Run the dev-env container interactively
+Run the dev-env container interactively.
 ```
 ros-test/ros-compose/development$ docker compose run dev-env
 ```
 
-Launch talker applications inside the container
+Optional step: test colcon and ros2.
+```
+dev_ws$ colcon --help
+dev_ws$ ros2 --help
+```
+
+Launch talker applications inside the container.
 ```
 ~/dev_ws# ./install/cpp_pub/lib/cpp_pub/talker 
 [INFO] [1666147046.545890132] [minimal_publisher]: Publishing: 'Hello, world! 0'
