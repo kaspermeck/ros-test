@@ -1,0 +1,10 @@
+version: "3"
+services:
+  prod-env-pub:
+    build: prod-env-pub/.
+    image: ros-galactic:prod-env-pub
+    command: ./talker
+  prod-env-sub:
+    build: prod-env-sub/.
+    image: ros-galactic:prod-env-sub
+    command: ./listener
