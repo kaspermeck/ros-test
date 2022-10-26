@@ -3,8 +3,12 @@ services:
   prod-env-pub:
     build: prod-env-pub/.
     image: ros-galactic:prod-env-pub
-    command: ./talker
+    volumes:
+      - ./../launch_files:/root/launch_files:ro
+    command: /bin/bash -c "source /root/cpp_pub/share/cpp_pub/local_setup.bash && ros2 launch /root/launch_files/pub_launch.yml"
   prod-env-sub:
     build: prod-env-sub/.
     image: ros-galactic:prod-env-sub
-    command: ./listener
+    volumes:
+      - ./../launch_files:/root/launch_files:ro
+    command: /bin/bash -c "source /root/cpp_sub/share/cpp_sub/local_setup.bash && ros2 launch /root/launch_files/sub_launch.yml"

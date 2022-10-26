@@ -6,5 +6,6 @@ FROM ros:galactic-ros-core
 ENV HOME=/root
 WORKDIR ${HOME}
 
-# Copy listener binary from development to production container
-COPY --from=ros-galactic:dev-env ${HOME}/dev_ws/build/cpp_sub/listener .
+# Copy listener package from development to production container
+RUN mkdir ${HOME}/cpp_sub
+COPY --from=ros-galactic:dev-env ${HOME}/dev_ws/install/cpp_sub cpp_sub

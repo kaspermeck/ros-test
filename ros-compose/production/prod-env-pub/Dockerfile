@@ -6,5 +6,6 @@ FROM ros:galactic-ros-core
 ENV HOME=/root
 WORKDIR ${HOME}
 
-# Copy talker binary from development to production container
-COPY --from=ros-galactic:dev-env ${HOME}/dev_ws/build/cpp_pub/talker .
+# Copy talker package from development to production container
+RUN mkdir ${HOME}/cpp_pub
+COPY --from=ros-galactic:dev-env ${HOME}/dev_ws/install/cpp_pub cpp_pub/
